@@ -31,7 +31,7 @@ def init_window(func):  # noqa: ANN001, ANN201
 @init_window
 def pick_file(
     file_type: list[tuple[str, str]] | None = None,
-    init_dir: Path | None = Path(__file__).parent,
+    init_dir: Path | None = None,
 ) -> Path:
     """ファイル選択ウィンドウで選択したファイルパスを返す.
 
@@ -61,7 +61,7 @@ def pick_file(
 @init_window
 def pick_files(
     file_type: list[tuple[str, str]] | None = None,
-    init_dir: Path | None = Path(__file__).parent,
+    init_dir: Path | None = None,
 ) -> list[Path]:
     """ファイル選択ウィンドウで選択したファイルパスを返す(複数選択可).
 
@@ -90,7 +90,7 @@ def pick_files(
 
 
 @init_window
-def pick_dir(init_dir: Path | None = Path(__file__).parent) -> Path:
+def pick_dir(init_dir: Path | None = None) -> Path:
     """ファイル選択ウィンドウで選択したディレクトリパスを返す.
 
     Args:
