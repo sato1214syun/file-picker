@@ -1,14 +1,16 @@
 """Utility functions for selecting file(files) or directory and extracting path."""
 
 import tkinter as tk
+from collections.abc import Callable
 from pathlib import Path
 from tkinter import filedialog as tk_file_dialog
+from typing import Any
 
 
-def init_window(func):  # noqa: ANN001, ANN201
+def init_window(func: Callable) -> Callable[..., Any]:
     """デコレータ."""
 
-    def wrapper(*arg, **kwargs):  # noqa: ANN202
+    def wrapper(*arg: Any, **kwargs: Any) -> Any:  # noqa: ANN401
         """選択ウィンドウの初期化."""
         # ファイル選択ダイアログの表示
         root = tk.Tk()
