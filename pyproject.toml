@@ -1,12 +1,11 @@
 [project]
 name = "file-picker"
-version = "0.1.0"
+version = "0.2.1"
 description = "Add your description here"
 authors = [
     { name = "sato1214syun", email = "sato1214syun@gmail.com" }
 ]
 dependencies = [
-    "pytest>=7.4.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -18,7 +17,8 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "ruff>=0.0.285",
+    "ruff>=0.1.5",
+    "pytest>=7.4.3",
 ]
 
 [tool.hatch.metadata]
@@ -26,7 +26,6 @@ allow-direct-references = true
 
 [tool.ruff]
 target-version = "py311"
-line-length = 88
 select = ["ALL"]
 ignore = ["ANN003", "ANN002"] 
 
