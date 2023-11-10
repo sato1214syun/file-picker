@@ -1,6 +1,6 @@
 [project]
 name = "file-picker"
-version = "0.2.1"
+version = "0.2.2"
 description = "Add your description here"
 authors = [
     { name = "sato1214syun", email = "sato1214syun@gmail.com" }

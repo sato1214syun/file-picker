@@ -2,15 +2,21 @@
 
 import tkinter as tk
 from collections.abc import Callable
+from functools import wraps
 from pathlib import Path
 from tkinter import filedialog as tk_file_dialog
-from typing import Any
+from typing import ParamSpec, TypeVar
+
+# デコレータにより関数の引数が隠れないようにする
+P = ParamSpec("P")
+R = TypeVar("R")
 
 
-def init_window(func: Callable) -> Callable[..., Any]:
+def init_window(func: Callable[P, R]) -> Callable[P, R]:
     """デコレータ."""
 
-    def wrapper(*arg: Any, **kwargs: Any) -> Any:  # noqa: ANN401
+    @wraps(func)  # デコレートされた関数の名前やdocstringが隠れないようにする
+    def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
         """選択ウィンドウの初期化."""
         # ファイル選択ダイアログの表示
         root = tk.Tk()
@@ -22,7 +28,7 @@ def init_window(func: Callable) -> Callable[..., Any]:
         root.lift()
         root.focus_force()
 
-        result = func(*arg, **kwargs)
+        result = func(*args, **kwargs)
 
         root.destroy()
         return result
