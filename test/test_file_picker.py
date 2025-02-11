@@ -12,8 +12,8 @@ def test_file_picker() -> None:
     result = fp.pick_file([(TARGET.name, TARGET.name)], Path(__file__).parent)
     assert result.absolute() == Path(TARGET).absolute()  # noqa: S101
 
-    result = fp.pick_files([(TARGET.name, TARGET.name)], Path(__file__).parent)
-    assert result[0].absolute() == Path(TARGET).absolute()  # noqa: S101
+    result2 = fp.pick_files([(TARGET.name, TARGET.name)], Path(__file__).parent)
+    assert result2[0].absolute() == Path(TARGET).absolute()  # noqa: S101
 
-    result = fp.pick_dir(Path(__file__).parent)
-    assert result.absolute() == Path(TARGET).parent.absolute()  # noqa: S101
+    result3 = fp.pick_dir(Path(__file__).parent)
+    assert result3.absolute() == Path(TARGET).parent.absolute()  # noqa: S101
