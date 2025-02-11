@@ -20,6 +20,7 @@ def init_window(func: Callable[P, R]) -> Callable[P, R]:
         """選択ウィンドウの初期化."""
         # ファイル選択ダイアログの表示
         root = tk.Tk()
+        root.attributes("-topmost", True)  # noqa: FBT003
         root.withdraw()
         # Make it almost invisible - no decorations, 0 size, top left corner.
         root.overrideredirect(boolean=True)
@@ -43,13 +44,15 @@ def pick_file(
 ) -> Path:
     """ファイル選択ウィンドウで選択したファイルパスを返す.
 
-    Args:
+    Args
+    ----
         file_type (list[tuple[str, str]] | None, optional): File type restriction.
         Defaults to None.
         init_dir (Path | None, optional): Initial open directory.
         Defaults to Path(__file__).parent.
 
-    Returns:
+    Returns
+    -------
         Path: 選択したファイルのパス
     """
     # file_typeの初期化
@@ -73,13 +76,15 @@ def pick_files(
 ) -> list[Path]:
     """ファイル選択ウィンドウで選択したファイルパスを返す(複数選択可).
 
-    Args:
+    Args
+    ----
         file_type (list[tuple[str, str]] | None, optional): File type restriction.
         Defaults to None.
         init_dir (Path | None, optional): Initial open directory.
         Defaults to Path(__file__).parent.
 
-    Returns:
+    Returns
+    -------
         Path: 選択したファイルのパス
     """
     # file_typeの初期化
@@ -101,11 +106,13 @@ def pick_files(
 def pick_dir(init_dir: Path | None = None) -> Path:
     """ファイル選択ウィンドウで選択したディレクトリパスを返す.
 
-    Args:
+    Args
+    ----
         init_dir (Path | None, optional): Initial open directory.
         Defaults to Path(__file__).parent.
 
-    Returns:
+    Returns
+    -------
         Path: 選択したディレクトリのパス
     """
     # 初期表示ディレクトリの設定
